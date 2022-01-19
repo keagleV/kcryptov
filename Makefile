@@ -1,6 +1,6 @@
 install_headers:
 	$(info ************  INSTALLING HEADRS  ************)
-	cp -R Headers/* /usr/include/kcryptov
+	cp -R headers/* /usr/include/kcryptov
 
 delete_headers:
 	$(info ************  DELETING HEADRS  ************)
@@ -8,5 +8,23 @@ delete_headers:
 
 cp_to_git:
 	$(info ************  Copying To GIT  ************)
-	cp -r Headers Src Makefile /home/keagle/mygit/kcryptov/
+	cp -r lib headers src Makefile /home/keagle/mygit/kcryptov/
 
+build_logger:
+	$(info ************  Building Logger ************)
+	gcc -w -c src/kcv_logger.c -o lib/kcv_logger.o
+
+install_libraries:
+	$(info ************  Installing Library Files  ************)
+	cp lib/* /usr/lib/kcryptov/
+
+delete_libraries:
+	$(info ************  Deleting Library Files  ************)
+	rm -rf  /usr/lib/kcryptov/kcv*
+
+
+build:
+	$(info ************  Building KCV ************)
+	make build_logger
+	make install_libraries
+	gcc -w src/kcv_init.c -o kcv /usr/lib/kcryptov/kcv_logger.o
