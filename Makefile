@@ -14,6 +14,10 @@ build_logger:
 	$(info ************  Building Logger ************)
 	gcc -w -c src/kcv_logger.c -o lib/kcv_logger.o
 
+build_kshellv:
+	$(info ************  Building KSHELLV ************)
+	gcc -w -c src/kcv_kshellv.c -o lib/kcv_kshellv.o -L lib -lcli
+
 install_libraries:
 	$(info ************  Installing Library Files  ************)
 	cp lib/* /usr/lib/kcryptov/
@@ -26,5 +30,6 @@ delete_libraries:
 build:
 	$(info ************  Building KCV ************)
 	make build_logger
+	make build_kshellv
 	make install_libraries
-	gcc -w src/kcv_init.c -o kcv /usr/lib/kcryptov/kcv_logger.o
+	gcc -w src/kcv_init.c -o kcv /usr/lib/kcryptov/kcv_logger.o /usr/lib/kcryptov/kcv_kshellv.o -L./lib -lcli

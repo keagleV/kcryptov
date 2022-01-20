@@ -5,11 +5,21 @@
 #include <kcryptov/kcv_global_parameters.h>
 
 
+#define KVC_PROGRAM_NAME "kcryptov"
+#define KCV_PROGRAM_DEV_TEAM_NAME "Sky Eagle"
+#define KCV_MAJOR_VERSION 1
+#define KCV_MINOR_VERSION 0
+
+
+
 typedef u8 majorVersion_t;
 typedef u8 minorVersion_t;
 typedef u8 * programName_t;
 typedef u8 * programDevTeamName_t;
 typedef u8 * programDevName_t;
+
+
+
 
 
 

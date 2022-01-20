@@ -47,7 +47,7 @@ static log_code_t * log_level_map_code(kcv_log_level_t logLevel){
 void kcv_logger( kcv_log_level_t logLevel , kcv_logMessage_t * logMessage){
 
     // Defining the logging buffer
-    loggBuffer_t loggBuffer[KCV_LOGGING_BUFFER_SIZE];
+    loggBuffer_t loggBuffer = malloc(KCV_LOGGING_BUFFER_SIZE);
 
     snprintf( loggBuffer ,KCV_LOGGING_BUFFER_SIZE, "[%s] %s\n",log_level_map_code(logLevel), logMessage);
 

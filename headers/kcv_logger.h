@@ -8,7 +8,7 @@
 
 typedef u8 kcv_log_level_t;
 typedef u8 kcv_logMessage_t;
-typedef u8 loggBuffer_t;
+typedef u8 * loggBuffer_t;
 typedef u8 log_code_t ;
 
 
